@@ -1,0 +1,76 @@
+Neues Bild pollen
+=================
+Holt ein neues Vorschaubild vom Server.
+Server holt das aktuelle Bild der Kamera,
+komprimiert es und schickt die Daten als Antwort.
+
+Client->Server:
+HTTP-Request "/pre" (preview)
+
+Response Server->Client
+JSON: '{"img":"<base64-String>"}' // Falls möglich und performant 
+oder: '{"src":"<Link zum Bild>"}' // Alternative Backup-Lösung
+
+Komplette Alternative:
+WebSockets, Server sendet automatisch neue Bilder
+Besser nicht, weil:
+	- umständlich
+	- nicht notwendig
+	- nur ein Client
+	- Client steuert Abfrage der Bilder (da zB unnötig beim Bearbeiten)
+	- kleiner Overhead vernachlässigbar da lokales Netz
+	
+
+Steuerungparameter senden
+=========================
+Per Client Einstellungen an der Kamera ändern
+
+Client->Server:
+POST-Request "/"
+JSON '{"parameter":"value"<,..beliebig viele Paare..>}'
+
+Parameter:
+	name	-	range	|	Beschreibung
+	
+	zum Beispiel:
+	
+	Lichtsteuerung:
+	red		-	0-100	|	Beleuchtungsanteil Rot %
+	green	-	0-100	|	Beleuchtungsanteil Grün %
+	blue	-	0-100	|	Beleuchtungsanteil Blau %
+	
+	Kamera:
+	/*
+		Wie viel Kontrolle sollen die Nutzer denn haben?
+	*/
+	focus	- 	new		|	Neu Fokusieren
+	fStop	-	?testen	|	Blende
+	shutter	-	?testen	|	Verschlusszeit
+	
+
+Server->Client:
+JSON: '{"status":"ok"}'
+oder: '{"status":"err","err":"<Fehlermeldung>"}'
+
+
+Bild aufnehmen
+==============
+Client->Server:
+POST JSON: '{"capture":"<Sekunden bis zum Auslösen>"}'
+
+Response Server->Client
+JSON: '{"img":"<base64-String>"}' // Falls möglich und performant 
+oder: '{"src":"<Link zum Bild>"}' // Alternative Backup-Lösung
+
+
+Bild speichern
+==============
+Bearbeitetes Bild vom Client in Datenbank speichern.
+
+Client->Server
+POST JSON: '{"save":"<base64 Bild>"}'
+oder: '{"save":<JSON DOM-Node Code vom Framework>}'
+
+Server->Client:
+JSON: '{"status":"ok"}'
+oder: '{"status":"err","err":"<Fehlermeldung>"}'

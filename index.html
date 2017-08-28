@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+   <!-- <link rel="stylesheet" href="css/base-min.css" />
+    <link rel="stylesheet" href="css/grids-min.css" />
+    <link rel="stylesheet" href="css/grids-responsive-min.css" />-->
+    <link rel="stylesheet" href="css/jquery.flipster.min.css">
+    <link rel="stylesheet" href="css/style2.css" />
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Photobooth</title>
+</head>
+
+<body>
+    <!-- -->
+    <div class="container">
+        <div class="panel settings-panel">
+            <div class="settings-panel-item">
+                <p class="settings-text">Einstellungen</p>
+            </div>
+            <div class="filters">
+                <div>
+                    <input type="text" id="text" placeholder="Subscription" maxlength="50" />
+                    <select id='font'>
+                        <option value=0 class="fontfield font_0">Gochihand</option>
+                        <option value=1 class="fontfield font_1">LABELLEAURORE</option>
+                        <option value=2 class="fontfield font_2">ROCKSALT</option>
+                    </select>
+                    <div class="range-slider">
+                        <p class="settings-text-small">Kontrast</p>
+                        <input class="range-slider__range" type="range" id="contrast" min="-255" max="255" data-filter="0" list="volsettings"> <span class="range-slider__value">0</span>
+                        <datalist id="volsettings">
+                            <option>0</option>
+                        </datalist>
+                    </div>
+                    <div class="range-slider">
+                        <p class="settings-text-small">Pixelate</p>
+                        <input class="range-slider__range" type="range" id="blocksize" min="1" max="16" data-filter="1" value="0"> <span class="range-slider__value">0</span> </div>
+                    <div class="range-slider">
+                        <p class="settings-text-small">Sättigung</p>
+                        <input class="range-slider__range" type="range" id="saturate" min="-100" max="100" data-filter="2" list="volsettings"> <span class="range-slider__value"> 0</span>
+                        <datalist id="volsettings">
+                            <option>0</option>
+                        </datalist>
+                    </div>
+                    <div class="range-slider">
+                        <p class="settings-text-small">Helligkeit</p>
+                        <input class="range-slider__range" type="range" id="brightness" min="-255" max="255" data-filter="3" list="volsettings"> <span class="range-slider__value"> 0</span>
+                        <datalist id="volsettings">
+                            <option>0</option>
+                        </datalist>
+                    </div>
+                </div>
+            </div>
+            <div class="settings-panel-item">
+                <div class="reset-settings">Zurücksetzen</div>
+            </div>
+        </div>
+        
+           
+           <div class="change-panel">
+           <div class="preview-panel">
+            <div id='preview-container'>
+                <div id="canvas_image">
+                    <canvas id="canvas"></canvas>
+                    <p id="subtext">Subscription</p>
+                </div>
+            </div>
+            </div>
+            <div class="change-button-panel">
+                 
+                 <div class="save-button" id="Upload">Speichern</div>
+                  <div class="verwerfen-button">Verwerfen</div>
+                  <div class="gallery-button-custom"><a href="gallery.html"> <img class="gallery-button-svg" src="img/svg_buttons/gallery_button.svg" alt="Gallery"></a></div>
+                 
+                  
+            </div>
+        </div>
+        <div class="panel sticker-panel">
+            <div class="sticker-panel-slider">
+                <div class="sticker-container">
+                <ul class="sliderSticker"></ul>
+            </div>
+            </div>
+           
+            <div class="sticker-panel-item">
+               <div class="delete-button" id="delete">Sticker löschen</div>
+            </div>
+        </div>
+    </div>
+    <!--    <div class="pure-g">
+        <div class="pure-u-1" style="height: 40px;">
+            <a href="main.html" data-tooltip="Zurück zur Hauptseite">
+                <div class="backbutton"> </div>
+            </a>
+        </div>
+        <div class="pure-u-7-8 pure-u-lg-1-2">
+            <div id='preview-container'>
+                <div id="canvas_image">
+                    <canvas id="canvas"></canvas>
+                    <p id="subtext">Subscription</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="pure-u-1-8 pure-u-lg-1-8">
+
+
+            <div class="delete-save-button">
+
+                <svg id="button-svg" width="100%" height="100%" viewBox="0 0 200 363" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" style="fill-rule:evenodd;clip-rule:evenodd;stroke-miterlimit:10;">
+                    <g id="Grund" transform="matrix(1,0,0,1,-81.415,0)">
+                        <path d="M271.857,72.484L181.223,15.67L90.356,72.484L90.356,309.724L90.449,309.724L90.449,326.194C90.449,336.655 131.038,345.135 181.106,345.135C231.174,345.135 271.763,336.655 271.763,326.194L271.763,309.724L271.856,309.724L271.856,72.484L271.857,72.484Z" style="fill:rgb(66,117,120);fill-rule:nonzero;stroke:rgb(243,146,0);stroke-width:1.42px;" />
+                    </g>
+                    <g id="Kreis" transform="matrix(1,0,0,1,-81.415,0)">
+                        <ellipse cx="181.106" cy="264.577" rx="65.563" ry="61.859" style="fill:rgb(137,205,211);stroke:rgb(243,147,35);stroke-width:0.99px;" />
+                    </g>
+                    <g transform="matrix(1,0,0,1,-81.415,0)">
+                        <path id="save" d="M255.852,120.777L255.852,82.251L181.205,35.458L106.366,82.251L106.366,108.676L106.364,108.676L106.364,180.403L106.366,180.403L106.366,230.333L106.443,230.333L106.443,230.91C119.393,204.573 147.65,186.298 180.446,186.298C211.812,186.298 239.025,203.014 252.669,227.51L255.775,232.875L255.775,230.333L255.852,230.333L255.852,160.751C255.851,160.751 255.85,160.751 255.849,160.751L255.849,120.777C255.85,120.777 255.851,120.777 255.852,120.777Z" style="" />
+                    </g>
+                    <g id="Upload" transform="matrix(1,0,0,1,-81.415,0)">
+                        <path id="pfeil" d="M213.352,110.708L181.227,69.458L149.602,110.708L172.102,110.708L172.102,143.333L191.352,143.333L191.352,110.708L213.352,110.708Z"  />
+                        <path d="M216.852,126.86L216.852,149.333L145.977,149.333L145.977,126.86L136.477,126.86L136.477,159.275L226.352,159.275L226.352,126.86L216.852,126.86Z" style="fill:rgb(1,2,2);fill-rule:nonzero;stroke:rgb(243,146,0);stroke-width:1px;" />
+                    </g>
+                    <g   transform="matrix(2.2,0,0,2.2,67,231.577)">
+                        <path id="delete"  disabled=true d="M15,9L24,0L30,6L21,15L30,24L24,30L15,21L6,30L0,24L9,15L0,6L6,0L15,9Z" />
+                    </g>
+                </svg>
+
+
+         
+            </div>
+
+
+
+        </div>
+
+        <div class="pure-u-7-8 pure-u-lg-3-8">
+            <div class="filters">
+               
+               <h2>Einstellungen</h2>
+                <input type="text" id="text" placeholder="Subscription" maxlength="50" />
+                <select id='font'>
+                    <option value=0 class="fontfield font_0">Gochihand</option>
+                    <option value=1 class="fontfield font_1">LABELLEAURORE</option>
+                    <option value=2 class="fontfield font_2">ROCKSALT</option>
+                </select>
+                <div class="pure-u-1-3 pure-u-lg-1">
+                    <div class="range-slider">
+                        <p style="-webkit-margin-after: 0px; -webkit-margin-before: 8px;">Kontrast</p>
+                        <input class="range-slider__range" type="range" id="contrast" min="-255" max="255" data-filter="0" list="volsettings"> <span class="range-slider__value">0</span>
+                        <datalist id="volsettings">
+                            <option>0</option>
+                        </datalist>
+                    </div>
+                    <div class="range-slider">
+                        <p style="-webkit-margin-after: 0px; -webkit-margin-before: 8px;">Pixelate</p>
+                        <input class="range-slider__range" type="range" id="blocksize" min="1" max="16" data-filter="1" value="0"> <span class="range-slider__value">0</span> </div>
+                </div>
+                <div class="pure-u-1-4 pure-u-lg-1"></div>
+                <div class="pure-u-1-3 pure-u-lg-1">
+                    <div class="range-slider">
+                        <p style="-webkit-margin-after: 0px; -webkit-margin-before: 0px;">Sättigung</p>
+                        <input class="range-slider__range" type="range" id="saturate" min="-100" max="100" data-filter="2" list="volsettings"> <span class="range-slider__value"> 0</span>
+                        <datalist id="volsettings">
+                            <option>0</option>
+                        </datalist>
+                    </div>
+                    <div class="range-slider">
+                        <p style="-webkit-margin-after: 0px; -webkit-margin-before: 8px;">Helligkeit</p>
+                        <input class="range-slider__range" type="range" id="brightness" min="-255" max="255" data-filter="3" list="volsettings"> <span class="range-slider__value"> 0</span>
+                        <datalist id="volsettings">
+                            <option>0</option>
+                        </datalist>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+    
+        </div>
+    </div>
+    <div class="pure-g">
+        <div class="pure-u-5-5">
+            <div class="sticker-container">
+                <ul class="sliderSticker"></ul>
+            </div>
+        </div>
+    </div>-->
+    <script src="fabric/dist/fabric.js"></script>
+    <script src="js/jquery-3.2.1.min.js"></script>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery.flipster.min.js"></script>
+    <script src="js/script.js"></script>
+</body>
+
+</html>

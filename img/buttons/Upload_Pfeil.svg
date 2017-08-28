@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 17.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="362.83px" height="362.83px" viewBox="0 0 362.83 362.83" enable-background="new 0 0 362.83 362.83" xml:space="preserve">
+<g id="Grund" display="none">
+	<path display="inline" fill="#427578" stroke="#F39200" stroke-width="1.4173" stroke-miterlimit="10" d="M271.857,72.484
+		L181.223,15.67L90.356,72.484v237.24h0.093v16.47c0,10.461,40.589,18.941,90.657,18.941s90.657-8.48,90.657-18.941v-16.47h0.093
+		V72.484z"/>
+</g>
+<g id="Kreis" display="none">
+	
+		<ellipse display="inline" fill="#89CDD3" stroke="#F39323" stroke-width="0.9921" stroke-miterlimit="10" cx="181.106" cy="264.577" rx="65.563" ry="61.859"/>
+</g>
+<g id="Pfeil">
+	<path fill="#89CDD3" stroke="#F39200" stroke-width="0.9921" stroke-miterlimit="10" d="M255.852,120.777V82.251l-74.647-46.793
+		l-74.839,46.793v26.425h-0.002v71.727h0.002v49.93h0.077v0.577c12.95-26.337,41.207-44.612,74.003-44.612
+		c31.366,0,58.579,16.716,72.223,41.212l3.106,5.365v-2.542h0.077v-69.582c-0.001,0-0.002,0-0.003,0v-39.974
+		C255.85,120.777,255.851,120.777,255.852,120.777z"/>
+</g>
+<g id="Upload" display="none">
+	<g display="inline">
+		<polygon fill="#010202" stroke="#F39200" stroke-miterlimit="10" points="213.352,110.708 181.227,69.458 149.602,110.708 
+			172.102,110.708 172.102,143.333 191.352,143.333 191.352,110.708 		"/>
+		<polygon fill="#010202" stroke="#F39200" stroke-miterlimit="10" points="216.852,126.86 216.852,149.333 145.977,149.333 
+			145.977,126.86 136.477,126.86 136.477,149.333 136.477,159.275 145.977,159.275 216.852,159.275 219.102,159.275 
+			226.352,159.275 226.352,126.86 		"/>
+	</g>
+</g>
+</svg>

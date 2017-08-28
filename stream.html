@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>node.js Stream test</title>
+    <script src="test/jquery-3.2.1.min.js"></script>
+    
+    <link rel="stylesheet" href="css/pure-min.css" />
+<!--    <link rel="stylesheet" href="test/test.css" /> -->
+    <link rel="stylesheet" href="css/style.css" />
+    </head>
+    
+<body>
+    <h1>node.js photobooth test</h1>
+    
+    
+    <div class=".pure-u-md-1-2"></div>
+    
+    
+    
+    <div class=".pure-u-md-1-2 custom_border">
+        <form action="http://raspberrypi:8000" method="POST" id='rgbForm'> P:
+            <select id="parameter" name='parameter'> </select>
+            <br /> V:
+            <select id="value" name='value'> </select>
+            <br />
+            <button type='button' id="send">Senden</button>
+        </form>
+        <form action="http://raspberrypi:8000" method="POST" id='shootForm'> Timer:
+            <input id="capture" name='capture' type="number" value=1>
+            <br />
+            <button type='button' id="shoot">Bild machen</button>
+        </form>
+    </div>
+    
+    
+    
+  
+    <script>
+        $('#send').click(function () {
+            $.ajax({
+                method: "POST"
+                , url: "http://raspberrypi:8000"
+                , data: $('#rgbForm').serialize()
+            }).done(function (msg) {
+                alert(msg.status);
+            });
+        });
+        $('#shoot').click(function () {
+            $.ajax({
+                method: "POST"
+                , url: "http://raspberrypi:8000"
+                , data: $('#shootForm').serialize()
+            }).done(function (msg) {
+                location.href = "view.html";
+            });
+        });
+        var settings;
+        $(document).ready(function () {
+            $.ajax({
+                method: "POST"
+                , url: "http://raspberrypi:8000/settings"
+            }).done(function (msg) {
+                settings = msg.settings;
+                for (var property in settings) {
+                    if (settings.hasOwnProperty(property)) {
+                        $('#parameter').append('<option id="' + property + '" value="' + property + '">' + settings[property].type + '</option>');
+                    }
+                }
+                $('#parameter').change(function () {
+                    $('#value').html("");
+                    for (key in settings[$('#parameter').val()].options) {
+                        $('#value').append('<option value="' + key + '" >' + settings[$('#parameter').val()].options[key] + '</option>');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
